@@ -25,8 +25,13 @@ public class Aquarium extends JFrame implements ActionListener {
 	
 	public Aquarium(){
 
+		try{
+			int value = x/0;
+		}catch(ArithmeticException e){System.out.println(e);}
+		System.out.println("Testing out try/catch exception handeling");
+		
 		JFrame myJFrame = new JFrame("Aquarium");
-		myJFrame.setSize(600, 500);
+		myJFrame.setSize(600, 400);
 		myJFrame.setLocationRelativeTo(null);
 		myJFrame.setLayout(new FlowLayout());
 		
@@ -68,26 +73,29 @@ public class Aquarium extends JFrame implements ActionListener {
 	
 	public void actionPerformed(ActionEvent event){
 		if(event.getSource()==buttonArray[0]){ //Angelfish
+			
 			myJFrame.dispose();
 			Angelfish myAngelfish = new Angelfish();
 			myAngelfish.setColor();
 			myAngelfish.setName();
-			myFish= myAngelfish.getColor()+" angelfish named" + myAngelfish.getName()  ;
+			myFish= myAngelfish.getColor()+" angelfish named " + myAngelfish.getName()  ;
 			myFishTank.add(myFish);
 		} else if(event.getSource()==buttonArray[1]){ //Goldfish
+			
 			myJFrame.dispose();
 			Goldfish myGoldfish = new Goldfish();
 			myGoldfish.setColor();
 			myGoldfish.setName();
-			myFish= myGoldfish.getColor()+" goldfish named" + myGoldfish.getName()  ;
+			myFish= myGoldfish.getColor()+" goldfish named " + myGoldfish.getName()  ;
 			myFishTank.add(myFish);
 			
 		} else if(event.getSource()==buttonArray[2]){ // koi
+			
 			myJFrame.dispose();
 			Koi myKoi = new Koi();
 			myKoi.setColor();
 			myKoi.setName();
-			myFish= myKoi.getColor()+" koi named" + myKoi.getName()  ;
+			myFish= myKoi.getColor()+" koi named " + myKoi.getName()  ;
 			myFishTank.add(myFish);
 		}
 	}
@@ -100,3 +108,4 @@ public class Aquarium extends JFrame implements ActionListener {
 	}
 
 }
+

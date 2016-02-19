@@ -9,13 +9,18 @@ import java.awt.*;
 
 public class Fish {
 
-	private String Color = "blue";
-	private String Name = "Little Swimmy";
+	private String Color;
+	private String Name;
 	
 	protected void setColor(){
 		
+		System.out.println(Color);
+		
+		Color = "yellow";
+		Name = "Little Swimmy";
+		
 		JFrame myCFrame = new JFrame();
-		myCFrame.setSize(600, 500);
+		myCFrame.setSize(600, 400);
 		myCFrame.setLayout(new FlowLayout());
 		myCFrame.setLocationRelativeTo(null);
 		
@@ -31,11 +36,14 @@ public class Fish {
         myCFrame.add(myColorLabel);
         myCFrame.add(myColorPanel);
 		myCFrame.setVisible(true);
+	
+//		System.out.println(Color);
 		
 		yesButton.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent e){
         	    myCFrame.dispose();
-        		Color=JOptionPane.showInputDialog("What color is your fish?");
+        	    colorIs();
+        		return; 
         	}
         });
         noButton.addActionListener(new ActionListener(){
@@ -46,8 +54,14 @@ public class Fish {
         });
 		
 	}
+	protected String colorIs(){
+		Color=JOptionPane.showInputDialog("What color is your fish?");
+		System.out.println(Color);
+		return Color;
+	}
 	
 	protected String getColor(){
+		System.out.println(Color);
 		return Color;
 	}
 
@@ -75,9 +89,10 @@ public class Fish {
 		yesButton.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent e){
         	    myNFrame.dispose();
-        		Name=JOptionPane.showInputDialog("What is the name of your fish?");
+        		nameIs();
+        	    return;
         	}
-        });
+        }); 
         noButton.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent e){
         		myNFrame.dispose();
@@ -86,6 +101,12 @@ public class Fish {
         });
 		
 	}
+	
+	protected String nameIs(){
+		Name=JOptionPane.showInputDialog("What is the name of your fish?");
+		return Name;
+	}
+	
 	protected String getName(){
 		return Name;
 	}
